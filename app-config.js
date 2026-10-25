@@ -1,24 +1,19 @@
-// ملف الإعدادات المركزي - مخصص للتحكم الكامل للمشتري
+// ملف الإعدادات المركزي - شبكة HUSSEIN-STAR
 window.NetworkConfig = {
-    networkName: "هلا نت المتطورة",
+    networkName: "star-hussein/5g",
+    brandTitle: "HUSSEIN-STAR",
     supportPhones: {
-        primary: "738660998",
-        secondary: "738660998"
+        primary: "+967738660998",
+        secondary: "+967738660998"
     },
     whatsappNumber: "967738660998",
     currency: "ريال",
     logoPath: "img/logo.png",
-    adBannerLink: "#",
-    features: {
-        enableLiveStream: true,
-        enableQuranBox: true
-    }
 
-    // إعدادات البنر الإعلاني الديناميكي (يمكن للمشتري تعديل الصورة والرابط بسهولة)
     adBanner: {
         enabled: true,
-        imageUrl: "img/banner.jpg",
-        linkUrl: "https://wa.me/738660998",
+        imageUrl: "img/logo.png",
+        linkUrl: "https://wa.me/967738660998",
         altText: "عروض الشبكة والخدمات"
     },
 
@@ -27,4 +22,3 @@ window.NetworkConfig = {
         enableQuranBox: true
     }
 };
-

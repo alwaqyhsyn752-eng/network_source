@@ -19,13 +19,20 @@ html,
 body {
     min-height: 100%;
     direction: rtl;
-    background: linear-gradient(180deg, #2a063f 0%, #46106f 52%, #210432 100%);
+    background: #05071a;
     color: #f7f1e3;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
 }
 
 .container {
     min-height: 100dvh;
     overflow-y: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .screen {
@@ -36,6 +43,7 @@ body {
     margin: 0 auto;
     position: relative;
     overflow: visible;
+    z-index: 1;
 }
 
 .screen-content {
@@ -54,7 +62,12 @@ body {
     overflow: hidden;
     border: 1px solid rgba(216, 177, 90, .42);
     border-radius: 26px;
-    background: linear-gradient(180deg, #551987 0%, #3a0d5f 100%);
+    background: linear-gradient(180deg, rgba(85, 25, 135, .72) 0%, rgba(58, 13, 95, .72) 100%);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    box-shadow:
+        0 20px 50px -20px rgba(0, 0, 0, .65),
+        0 0 40px -10px rgba(99, 102, 241, .22);
 }
 
 .main-frame + .main-frame {
@@ -63,7 +76,7 @@ body {
 
 .brand-frame {
     padding: 14px 16px 20px;
-    background: linear-gradient(180deg, #5a1b8d 0%, #43126c 100%);
+    background: linear-gradient(180deg, rgba(90, 27, 141, .78) 0%, rgba(67, 18, 108, .78) 100%);
 }
 
 .brand-dates {
@@ -224,7 +237,6 @@ body {
 .brand-whatsapp .brand-action-icon { color: #25d366; }
 .brand-info .brand-action-icon { color: #e58a3a; }
 
-
 .login-form,
 .login-form form {
     width: 100%;
@@ -235,7 +247,6 @@ body {
     margin: 0 auto 11px;
     position: relative;
 }
-
 
 .login-tools-frame {
     display: grid;
@@ -255,7 +266,7 @@ body {
     border: 1px solid rgba(216, 177, 90, .35);
     border-radius: 16px;
     outline: none;
-    background: linear-gradient(180deg, #5a1b8d 0%, #43126c 100%);
+    background: linear-gradient(180deg, rgba(90, 27, 141, .78) 0%, rgba(67, 18, 108, .78) 100%);
     color: #f7f1e3;
     cursor: pointer;
 }
@@ -333,7 +344,7 @@ body {
     right: 10px;
     border: 2px solid #f0d78a;
     border-radius: 12px;
-    background: #4d167c;
+    background: rgba(77, 22, 124, .9);
     color: #f0d78a;
     font-size: 22px;
     z-index: 1;
@@ -441,7 +452,7 @@ body {
     padding: 8px 2px 7px;
     border: 1px solid rgba(216, 177, 90, .35);
     border-radius: 16px;
-    background: linear-gradient(180deg, #5a1b8d 0%, #43126c 100%);
+    background: linear-gradient(180deg, rgba(90, 27, 141, .78) 0%, rgba(67, 18, 108, .78) 100%);
     color: #f7f1e3;
     font-size: 12.5px;
     font-weight: 900;
@@ -466,7 +477,6 @@ body {
 .btnicon.icon-money { color: #f0d78a; }
 .btnicon.icon-basket { color: #e58a3a; }
 .btnicon.icon-info-circled { color: #f7f1e3; }
-
 
 #login.inactive,
 .login.inactive {
@@ -502,7 +512,9 @@ body {
     padding: 16px 9px 18px;
     border: 1px solid rgba(216, 177, 90, .34);
     border-radius: 24px;
-    background: #3a0d5f;
+    background: rgba(58, 13, 95, .82);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
 
 .app table {
@@ -523,7 +535,7 @@ body {
     padding: 8px 5px;
     border-right: 1px solid rgba(216, 177, 90, .34);
     color: #f7f1e3;
-    background: #4a1478;
+    background: rgba(74, 20, 120, .82);
     font-weight: 900;
 }
 
@@ -557,6 +569,7 @@ body {
     border-radius: 10px;
     color: #f7f1e3;
     font-size: 14px;
+    background: rgba(42, 6, 63, .35);
 }
 
 .data span {
@@ -587,7 +600,7 @@ body {
     border: 1px solid rgba(216, 177, 90, .34);
     border-radius: 16px;
     outline: none;
-    background: #4a1478;
+    background: rgba(74, 20, 120, .82);
     color: #f7f1e3;
     font-size: 17px;
     font-weight: 900;
@@ -615,7 +628,6 @@ body {
     display: block;
 }
 
-
 .camera-modal-overlay {
     display: none;
     align-items: center;
@@ -624,7 +636,9 @@ body {
     inset: 0;
     z-index: 50;
     padding: 18px;
-    background: rgba(42, 6, 63, .82);
+    background: rgba(10, 5, 25, .78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .camera-modal-overlay.active {
@@ -638,7 +652,9 @@ body {
     padding: 18px 10px 20px;
     border: 1px solid rgba(216, 177, 90, .34);
     border-radius: 24px;
-    background: #3a0d5f;
+    background: rgba(58, 13, 95, .92);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
 
 .camera-close {
@@ -705,16 +721,12 @@ body {
     margin: 8px 0;
     border: 0;
     border-radius: 12px;
-    background: #4d167c;
+    background: rgba(77, 22, 124, .9);
     color: #fff;
     font-size: 15px;
     font-weight: 900;
     text-decoration: none;
     cursor: pointer;
-}
-
-.camera-open-browser {
-    background: #4d167c;
 }
 
 .camera-result {
@@ -734,7 +746,6 @@ body {
     font-weight: 900;
 }
 
-
 .welcome-modal-overlay {
     display: none;
     align-items: center;
@@ -743,7 +754,7 @@ body {
     inset: 0;
     z-index: 9000;
     padding: 18px;
-    background: rgba(42, 6, 63, .52);
+    background: rgba(10, 5, 25, .62);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -757,10 +768,12 @@ body {
     padding: 18px 16px 16px;
     border: 1px solid rgba(240, 202, 116, .38);
     border-radius: 24px;
-    background: linear-gradient(145deg, rgba(83, 25, 135, .96), rgba(42, 6, 63, .96));
+    background: linear-gradient(145deg, rgba(83, 25, 135, .95), rgba(42, 6, 63, .95));
     box-shadow: 0 18px 45px rgba(0, 0, 0, .42);
     color: #f7f1e3;
     animation: welcomePop .22s ease both;
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
 
 .welcome-icon {
@@ -817,7 +830,6 @@ body {
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ????? ??????? ???? ?????? ????????? ?????????? */
 .popup-rich-content {
     padding: 16px 10px 18px;
 }
@@ -831,7 +843,7 @@ body {
     padding: 13px 12px;
     border: 1px solid rgba(216, 177, 90, .26);
     border-radius: 20px;
-    background: linear-gradient(135deg, #5a1b8d, #3a0d5f);
+    background: linear-gradient(135deg, rgba(90, 27, 141, .82), rgba(58, 13, 95, .82));
     text-align: right;
 }
 
@@ -874,7 +886,7 @@ body {
     padding: 12px;
     border: 1px solid rgba(216, 177, 90, .34);
     border-radius: 18px;
-    background: #4a1478;
+    background: rgba(74, 20, 120, .72);
 }
 
 .popup-section h3 span {
@@ -951,7 +963,7 @@ body {
 }
 
 .sell-content .sell-hero {
-    background: linear-gradient(135deg, #6d2ca1, #3a0d5f);
+    background: linear-gradient(135deg, rgba(109, 44, 161, .85), rgba(58, 13, 95, .85));
 }
 
 .sell-cards {
@@ -967,7 +979,7 @@ body {
     padding: 12px;
     border: 1px solid rgba(240, 202, 116, .22);
     border-radius: 17px;
-    background: linear-gradient(135deg, rgba(83, 25, 135, .92), rgba(42, 6, 63, .72));
+    background: linear-gradient(135deg, rgba(83, 25, 135, .82), rgba(42, 6, 63, .62));
 }
 
 .sell-card-icon {
@@ -1033,7 +1045,6 @@ body {
     gap: 10px;
     margin: 8px auto 12px;
 }
-
 
 .status-actions {
     display: flex;
@@ -1221,80 +1232,573 @@ body {
         padding: 6px 8px;
         font-size: 11.5px;
     }
-
 }
 
+/* =============== Night Sky (replaces old simple stars) =============== */
 
-
-.ads-marquee-container {
-    overflow: hidden;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 12px;
-    border-radius: var(--border-radius);
-}
-
-.ads-track {
-    display: flex;
-    gap: 10px;
-    width: max-content;
-    animation: scrollAds 18s linear infinite;
-    padding: 10px 0;
-}
-
-.ads-track a {
-    display: block;
-    flex-shrink: 0;
-}
-
-.ads-track img {
-    width: var(--ad-image-width);
-    height: var(--ad-image-height);
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: filter 0.3s, transform 0.3s;
-}
-
-.ads-track img:hover {
-    filter: brightness(1.15);
-    transform: scale(1.02);
-}
-
-@keyframes scrollAds {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(50%); }
-}
-/* خلفية سماء ليلية متحركة مع نجوم وشهاب */
-body {
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    background-attachment: fixed;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* تأثير النجوم المتساقطة والشهب */
-body::before {
-    content: "";
+.night-sky {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
     pointer-events: none;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90px 40px, #ddd, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    animation: starsTwinkle 4s infinite linear;
-    z-index: -1;
+    background: linear-gradient(180deg,
+        #05071a 0%,
+        #0a0e2e 35%,
+        #101a3d 65%,
+        #1a2350 100%);
 }
 
-@keyframes starsTwinkle {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-200px); }
+.night-sky__glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 800px 400px at 20% 0%,
+            rgba(99, 102, 241, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 600px 400px at 80% 20%,
+            rgba(168, 85, 247, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 1000px 500px at 50% 100%,
+            rgba(34, 211, 238, 0.10) 0%, transparent 60%);
 }
 
+.night-sky__moon {
+    position: absolute;
+    top: 6%;
+    right: 12%;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%,
+        #fef9e7 0%, #fde68a 45%, #f59e0b 100%);
+    box-shadow:
+        0 0 40px 10px rgba(253, 224, 71, 0.35),
+        0 0 80px 20px rgba(253, 224, 71, 0.15),
+        inset -8px -8px 20px rgba(180, 83, 9, 0.4);
+    animation: sky-moon-glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes sky-moon-glow {
+    from {
+        box-shadow:
+            0 0 40px 10px rgba(253, 224, 71, 0.35),
+            0 0 80px 20px rgba(253, 224, 71, 0.15),
+            inset -8px -8px 20px rgba(180, 83, 9, 0.4);
+    }
+    to {
+        box-shadow:
+            0 0 60px 15px rgba(253, 224, 71, 0.55),
+            0 0 110px 30px rgba(253, 224, 71, 0.22),
+            inset -8px -8px 20px rgba(180, 83, 9, 0.4);
+    }
+}
+
+.night-sky__stars {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.night-sky__stars--small {
+    width: 1px;
+    height: 1px;
+    box-shadow:
+        20px 30px #fff, 145px 80px #fff, 240px 45px #fff, 320px 120px #fff,
+        480px 60px #fff, 550px 200px #fff, 620px 90px #fff, 720px 180px #fff,
+        80px 250px #fff, 200px 320px #fff, 360px 280px #fff, 500px 340px #fff,
+        640px 300px #fff, 750px 380px #fff, 100px 460px #fff, 280px 500px #fff,
+        420px 440px #fff, 580px 480px #fff, 700px 520px #fff, 50px 600px #fff,
+        180px 660px #fff, 340px 620px #fff, 520px 680px #fff, 700px 660px #fff,
+        860px 40px #fff, 940px 140px #fff, 1040px 220px #fff, 1120px 360px #fff,
+        1200px 480px #fff, 1300px 560px #fff, 1400px 640px #fff, 1500px 720px #fff;
+    animation: sky-twinkle 4s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.night-sky__stars--medium {
+    width: 2px;
+    height: 2px;
+    box-shadow:
+        90px 50px #fff, 260px 90px #fff, 400px 60px #fff, 580px 140px #fff,
+        150px 200px #fff, 350px 240px #fff, 520px 300px #fff, 680px 260px #fff,
+        60px 360px #fff, 240px 400px #fff, 440px 380px #fff, 620px 420px #fff,
+        130px 500px #fff, 320px 540px #fff, 510px 560px #fff, 710px 600px #fff,
+        900px 90px #fff, 1080px 260px #fff, 1220px 400px #fff, 1380px 560px #fff;
+    animation: sky-twinkle 3s ease-in-out infinite;
+    animation-delay: -1s;
+    opacity: 0.9;
+}
+
+.night-sky__stars--large {
+    width: 3px;
+    height: 3px;
+    box-shadow:
+        200px 100px #fff, 500px 150px #fff, 340px 260px #fff, 660px 340px #fff,
+        120px 420px #fff, 480px 500px #fff, 260px 580px #fff, 620px 620px #fff,
+        960px 200px #fff, 1140px 340px #fff, 1280px 460px #fff, 1420px 620px #fff;
+    animation: sky-twinkle 2s ease-in-out infinite;
+    animation-delay: -0.5s;
+    filter: drop-shadow(0 0 2px #fff);
+}
+
+@keyframes sky-twinkle {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+}
+
+.night-sky__shooting {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.night-sky__shoot {
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.85) 55%,
+        #ffffff 100%);
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #ffffff);
+    opacity: 0;
+    animation: sky-shoot 7s linear infinite;
+    transform-origin: left center;
+}
+
+.night-sky__shoot::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.9);
+}
+
+.night-sky__shoot:nth-child(1) { top: 12%; animation-delay: 0s; }
+.night-sky__shoot:nth-child(2) { top: 32%; animation-delay: 2.4s; animation-duration: 8s; }
+.night-sky__shoot:nth-child(3) { top: 55%; animation-delay: 4.8s; animation-duration: 9s; }
+.night-sky__shoot:nth-child(4) { top: 78%; animation-delay: 1.6s; animation-duration: 7.5s; }
+
+@keyframes sky-shoot {
+    0% {
+        transform: rotate(32deg) translateX(0);
+        opacity: 0;
+    }
+    8%  { opacity: 1; }
+    38% {
+        transform: rotate(32deg) translateX(calc(100vw + 300px));
+        opacity: 1;
+    }
+    39% { opacity: 0; }
+    100% {
+        transform: rotate(32deg) translateX(calc(100vw + 300px));
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .night-sky__moon,
+    .night-sky__stars,
+    .night-sky__shoot { animation: none !important; }
+}
+
+/* Fallback: لو المتصفح لا يدعم backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .main-frame,
+    .app-bot,
+    .welcome-modal-card,
+    .camera-modal {
+        background: rgba(58, 13, 95, 0.95);
+    }
+}
+
+/* ==========================================
+   إصلاحات لجعل السماء الليلية مرئية بالكامل
+   ========================================== */
+
+/* جعل الحاويات الأساسية شفافة */
+html, body, .container, .screen, .screen-content {
+    background: transparent !important;
+}
+
+body {
+    background-color: #05071a !important;
+}
+
+/* جعل البطاقات زجاجية شفافة لرؤية النجوم خلفها */
+.main-frame {
+    background: rgba(85, 25, 135, 0.45) !important; /* شفافية 45% */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(216, 177, 90, 0.4) !important;
+}
+
+.app-bot {
+    background: rgba(58, 13, 95, 0.5) !important; /* شفافية 50% */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+.brand-frame {
+    background: rgba(90, 27, 141, 0.5) !important;
+}
+
+/* جعل الجداول شفافة */
+.app td, .app th {
+    background: rgba(74, 20, 120, 0.6) !important;
+}
+
+/* =========================================================
+   1. إصلاح الأيقونات المكسورة واستبدالها بـ Emojis
+   ========================================================= */
+[class^="icon-"]::before, 
+[class*=" icon-"]::before,
+[class^="btnicon"]::before,
+[class*=" btnicon"]::before {
+    font-family: inherit !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    display: inline-block !important;
+}
+
+/* استبدال الرموز */
+.icon-phone-squared::before { content: "📞" !important; }
+.icon-whatsapp::before { content: "💬" !important; }
+.icon-info-circled::before { content: "ℹ️" !important; }
+.icon-lock-open-alt::before { content: "🔓" !important; }
+.icon-video::before { content: "🎥" !important; }
+.icon-history::before { content: "🕒" !important; }
+.icon-camera-alt::before { content: "📷" !important; }
+.icon-user::before { content: "👤" !important; }
+.icon-book::before { content: "📖" !important; }
+.icon-money::before { content: "💰" !important; }
+.icon-basket::before { content: "🛒" !important; }
+.icon-off::before { content: "🚪" !important; }
+.icon-headphones::before { content: "🎧" !important; }
+.icon-bell-alt::before { content: "🔔" !important; }
+.icon-cancel::before { content: "❌" !important; }
+.icon-signal::before { content: "📶" !important; }
+.icon-key::before { content: "🔑" !important; }
+.icon-street-view::before { content: "📍" !important; }
+.icon-attention-circled::before { content: "⚠️" !important; }
+.icon-download-cloud::before { content: "☁️" !important; }
+.icon-ok-circled::before { content: "✅" !important; }
+.icon-hourglass::before { content: "⏳" !important; }
+
+/* =========================================================
+   2. تغيير ألوان الأزرار لتصبح عصرية (بنفسجي وأزرق متوهج)
+   ========================================================= */
+
+/* الأزرار الرئيسية (تسجيل الدخول، رجوع، إلخ) */
+.login-submit, 
+.app-submit, 
+.contact-action, 
+.service-submit {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* أزرار الشبكة والخدمات (اتصال، معلومات، خدمات) */
+.brand-action, 
+.services-grid button, 
+.login-tool {
+    background: rgba(99, 102, 241, 0.15) !important; /* لون زجاجي شفاف */
+    border: 1px solid rgba(168, 85, 247, 0.4) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+.brand-action:active, 
+.services-grid button:active, 
+.login-tool:active {
+    background: rgba(99, 102, 241, 0.3) !important;
+    transform: scale(0.97);
+}
+
+/* زر الواتساب (يبقى أخضر لتمييزه) */
+.brand-whatsapp {
+    background: rgba(37, 211, 102, 0.15) !important;
+    border-color: rgba(37, 211, 102, 0.4) !important;
+}
+
+/* زر البث المباشر (يبقى أحمر) */
+.live-stream-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ==========================================
+   تغيير ألوان جميع الأزرار لتصبح عصرية 
+   ========================================== */
+
+/* 1. الأزرار الأساسية (تسجيل الدخول، رجوع، الاتصال، إلخ) */
+.login-submit, 
+.app-submit, 
+.contact-action, 
+.service-submit {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. أزرار الشبكة السريعة (اتصال، واتساب، معلومات) وأزرار الخدمات */
+.brand-action, 
+.services-grid button, 
+.login-tool {
+    background: rgba(99, 102, 241, 0.15) !important; /* لون زجاجي شفاف */
+    border: 1px solid rgba(168, 85, 247, 0.4) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+/* تأثير عند تمرير الإصبع أو الضغط */
+.brand-action:active, 
+.services-grid button:active, 
+.login-tool:active {
+    background: rgba(99, 102, 241, 0.3) !important;
+    transform: scale(0.97);
+}
+
+/* 3. زر الواتساب (نتركه أخضر لتمييزه) */
+.brand-whatsapp {
+    background: rgba(37, 211, 102, 0.15) !important;
+    border-color: rgba(37, 211, 102, 0.4) !important;
+}
+
+/* 4. زر البث المباشر (نتركه أحمر) */
+.live-stream-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* =========================================================
+   استبدال الأيقونات المكسورة بأيقونات FontAwesome الزخرفية
+   ========================================================= */
+
+/* إخفاء الخط القديم المكسور */
+[class^="icon-"]::before, 
+[class*=" icon-"]::before,
+[class^="btnicon"]::before,
+[class*=" btnicon"]::before {
+    content: "" !important;
+    font-family: inherit !important;
+}
+
+/* تفعيل خط FontAwesome لكل الأيقونات */
+.icon-phone-squared::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f095"; }
+.icon-whatsapp::before { font-family: "Font Awesome 6 Brands"; font-weight: 400; content: "\f232"; }
+.icon-info-circled::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f05a"; }
+.icon-lock-open-alt::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f3c1"; }
+.icon-video::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f03d"; }
+.icon-history::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f1da"; }
+.icon-camera-alt::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f030"; }
+.icon-user::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f007"; }
+.icon-book::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f02d"; }
+.icon-money::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f0d6"; }
+.icon-basket::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f07a"; }
+.icon-off::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f011"; }
+.icon-headphones::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f025"; }
+.icon-bell-alt::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f0f3"; }
+.icon-cancel::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f00d"; }
+.icon-signal::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f012"; }
+.icon-key::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f084"; }
+.icon-street-view::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f3c5"; }
+.icon-attention-circled::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f071"; }
+.icon-download-cloud::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f0ed"; }
+.icon-ok-circled::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f058"; }
+.icon-hourglass::before { font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f254"; }
+
+/* ضبط حجم الأيقونات لتبدو متناسقة */
+.brand-action-icon, .btnicon, .login-tool-icon, .popup-hero-icon, 
+.contact-action-icon, .button-icon, .login-icon, .feature-icon, .notice-icon {
+    font-size: 24px !important;
+    line-height: 1 !important;
+}
+
+/* =========================================================
+   استبدال الأيقونات المكسورة بـ SVG زخرفي مدمج 
+   ========================================================= */
+[class^="icon-"]::before, 
+[class*=" icon-"]::before,
+[class^="btnicon"]::before,
+[class*=" btnicon"]::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* الهاتف */
+.icon-phone-squared::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+}
+
+/* الواتساب */
+.icon-whatsapp::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2325d366' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E");
+}
+
+/* معلومات الشبكة */
+.icon-info-circled::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e58a3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='16' x2='12' y2='12'/%3E%3Cline x1='12' y1='8' x2='12.01' y2='8'/%3E%3C/svg%3E");
+}
+
+/* القفل (بوابة الدخول) */
+.icon-lock-open-alt::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 9.9-1'/%3E%3C/svg%3E");
+}
+
+/* كرت سابق (الساعة) */
+.icon-history::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+}
+
+/* تصوير الكرت (الكاميرا) */
+.icon-camera-alt::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e58a3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E");
+}
+
+/* المستخدم */
+.icon-user::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+/* القرآن (الكتاب) */
+.icon-book::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f7f1e3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E");
+}
+
+/* المال */
+.icon-money::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='1' y='4' width='22' height='16' rx='2' ry='2'/%3E%3Cline x1='1' y1='10' x2='23' y2='10'/%3E%3C/svg%3E");
+}
+
+/* السلة */
+.icon-basket::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e58a3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'/%3E%3C/svg%3E");
+}
+
+/* البث المباشر */
+.icon-video::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='23 7 16 12 23 17 23 7'/%3E%3Crect x='1' y='5' width='15' height='14' rx='2' ry='2'/%3E%3C/svg%3E");
+}
+
+/* تسجيل الخروج */
+.icon-off::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e02d2d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.36 6.64a9 9 0 1 1-12.73 0'/%3E%3Cline x1='12' y1='2' x2='12' y2='12'/%3E%3C/svg%3E");
+}
+
+/* خدمة العملاء */
+.icon-headphones::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236d2ca1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 18v-6a9 9 0 0 1 18 0v6'/%3E%3Cpath d='M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z'/%3E%3C/svg%3E");
+}
+
+/* الجرس */
+.icon-bell-alt::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0ca74' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9'/%3E%3Cpath d='M13.73 21a2 2 0 0 1-3.46 0'/%3E%3C/svg%3E");
+}
+
+/* إغلاق */
+.icon-cancel::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232b0a45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+}
+
+/* إشارة */
+.icon-signal::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h.01'/%3E%3Cpath d='M8.5 16.5a5 5 0 0 1 7 0'/%3E%3Cpath d='M5 12.5a10 10 0 0 1 14 0'/%3E%3Cpath d='M1.5 8.5a15 15 0 0 1 21 0'/%3E%3C/svg%3E");
+}
+
+/* المفتاح */
+.icon-key::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4'/%3E%3C/svg%3E");
+}
+
+/* الموقع (الخريطة) */
+.icon-street-view::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+}
+
+/* تحذير */
+.icon-attention-circled::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffb454' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
+}
+
+/* السحابة */
+.icon-download-cloud::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f7f1e3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='8 17 12 21 16 17'/%3E%3Cline x1='12' y1='12' x2='12' y2='21'/%3E%3Cpath d='M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29'/%3E%3C/svg%3E");
+}
+
+/* صح */
+.icon-ok-circled::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2370d483' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E");
+}
+
+/* ساعة رملية */
+.icon-hourglass::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0d78a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z'/%3E%3C/svg%3E");
+}
+
+/* ضبط أحجام الحاويات لتستوعب الأيقونات */
+.brand-action-icon, .btnicon, .login-tool-icon, .popup-hero-icon, 
+.contact-action-icon, .button-icon, .login-icon, .feature-icon, .notice-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   تغيير ألوان الأزرار لتطابق الشعار (كحلي داكن وذهبي)
+   ========================================================= */
+
+/* 1. أزرار الشبكة السريعة (اتصال، واتساب، معلومات) وأزرار الخدمات */
+.brand-action, 
+.services-grid button, 
+.login-tool {
+    background: rgba(13, 20, 35, 0.85) !important; /* لون كحلي داكن شفاف */
+    border: 1px solid rgba(240, 215, 138, 0.8) !important; /* حدود ذهبية */
+    border-radius: 12px !important;
+    box-shadow: inset 0 0 10px rgba(240, 215, 138, 0.1), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease;
+}
+
+/* جعل النصوص داخل هذه الأزرار ذهبية */
+.brand-action, 
+.brand-action span,
+.services-grid button, 
+.login-tool-label span, 
+.login-tool-label small {
+    color: #f0d78a !important; 
+}
+
+/* تأثير عند الضغط على الأزرار */
+.brand-action:active, 
+.services-grid button:active, 
+.login-tool:active {
+    background: rgba(25, 35, 55, 0.95) !important;
+    transform: scale(0.95);
+}
+
+/* 2. زر تسجيل الدخول الرئيسي (لجعله متناسقاً) */
+.login-submit {
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%) !important;
+    color: #0d1423 !important;
+    border: 1px solid #f0d78a !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    font-weight: 900 !important;
+}

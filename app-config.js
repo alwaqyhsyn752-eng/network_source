@@ -2,9 +2,10 @@
 window.NetworkConfig = {
     networkName: "star-hussein/5g",
     brandTitle: "HUSSEIN-STAR",
+
     supportPhones: {
-        primary: "+967738660998",
-        secondary: "+967738660998"
+        primary: "738660998",
+        secondary: "738660998"
     },
     whatsappNumber: "967738660998",
     currency: "ريال",
@@ -12,7 +13,7 @@ window.NetworkConfig = {
 
     adBanner: {
         enabled: true,
-        imageUrl: "img/logo.png",
+        imageUrl: "img/banner.jpg",
         linkUrl: "https://wa.me/967738660998",
         altText: "عروض الشبكة والخدمات"
     },

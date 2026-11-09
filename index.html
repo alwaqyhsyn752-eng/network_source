@@ -1,346 +1,192 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<script src="app-config.js"></script>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#0a0f1d" />
-    <title>HUSSEIN-STAR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>HUSSEIN-STAR</title>
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body translate="no">
 
-    <!-- الخلفية السيبرانية -->
     <div class="cyber-bg" aria-hidden="true">
         <div class="cyber-orb cyber-orb--1"></div>
         <div class="cyber-orb cyber-orb--2"></div>
         <div class="cyber-grid"></div>
+        <div class="cyber-particles">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div>
+        </div>
     </div>
 
     <div class="container">
         <div class="screen">
             <div class="screen-content">
                 
-                <!-- نافذة الترحيب -->
-                <div class="welcome-modal-overlay" id="welcomeNotice" aria-hidden="true">
-                    <div class="welcome-modal-card" role="dialog" aria-label="إشعار ترحيبي">
-                        <span class="welcome-icon icon-bell-alt"></span>
-                        <h3>مرحباً بكم في شبكة HUSSEIN-STAR</h3>
-                        <p class="welcome-friday">مبارك عليكم يوم الجمعة، وأكثروا من الصلاة والسلام على النبي محمد صلى الله عليه وسلم.</p>
-                        <button type="button" class="welcome-continue" id="welcomeContinueBtn">متابعة</button>
+                <!-- شريط علوي حي (الساعة وحالة الشبكة) -->
+                <div class="live-dashboard">
+                    <div class="live-clock" id="liveClock">00:00:00</div>
+                    <div class="live-date" id="liveDate">جاري التحميل...</div>
+                    <div class="network-status">
+                        <span class="pulse-dot"></span> الشبكة مستقرة وسريعة
                     </div>
                 </div>
 
-                <div class="login" id="login">
-                    <!-- ترويسة الشعار -->
-                    <div class="brand-header">
-                        <div class="logo"></div>
-                        <h1 class="nettitle">HUSSEIN-STAR</h1>
-                        <p class="subtitle">5G SUPERFAST NETWORK</p>
-                    </div>
+                <div class="brand-header" style="margin-top: 10px;">
+                    <h1 class="nettitle">HUSSEIN-STAR</h1>
+                    <p class="subtitle">5G SUPERFAST NETWORK</p>
+                </div>
 
-                    <!-- شريط التواريخ -->
-                    <div class="brand-dates" aria-label="التاريخ">
-                        <span id="gregorianDate">2026 / 10 / 26</span>
-                        <span class="divider">|</span>
-                        <span id="hijriDate">1448 / 05 / 16</span>
-                    </div>
+                <!-- شريط الإعلانات المتحرك -->
+                <div class="marquee-box">
+                    <div class="marquee-text">🚀 أهلاً بكم في شبكة HUSSEIN-STAR - سرعة فائقة واستقرار تام 🚀</div>
+                </div>
 
-                    <!-- أزرار التواصل السريعة -->
-                    <div class="brand-actions">
-                        <a class="brand-action" href="tel:+967738660998">
-                            <span class="brand-action-icon icon-phone-squared"></span>
-                            <span>اتصال</span>
-                        </a>
-                        <a class="brand-action" href="https://wa.me/967738660998">
-                            <span class="brand-action-icon icon-whatsapp"></span>
-                            <span>واتساب</span>
-                        </a>
-                        <button type="button" class="brand-action" parent-id="network-info">
-                            <span class="brand-action-icon icon-info-circled"></span>
-                            <span>معلومات الشبكة</span>
-                        </button>
-                    </div>
+                <!-- أزرار التواصل -->
+                <div class="brand-actions">
+                    <a class="brand-action" href="tel:+967738660998">
+                        <span class="brand-action-icon icon-phone-squared"></span>
+                        <span>اتصال</span>
+                    </a>
+                    <a class="brand-action" href="https://wa.me/967738660998">
+                        <span class="brand-action-icon icon-whatsapp"></span>
+                        <span>واتساب</span>
+                    </a>
+                    <button type="button" class="brand-action" parent-id="network-info">
+                        <span class="brand-action-icon icon-info-circled"></span>
+                        <span>معلومات</span>
+                    </button>
+                </div>
 
-                    <!-- مساحة البنر الإعلاني -->
-                    <div id="dynamicAdContainer" class="ad-banner-wrapper" style="display: none; margin: 15px 0;">
-                        <a id="adBannerLink" href="#" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); border: 1px solid #00e5ff;">
-                            <img id="adBannerImg" src="" alt="إعلان" style="width: 100%; height: auto; display: block;" />
-                        </a>
+                <!-- صندوق الدخول 3D -->
+                <div class="login-box">
+                    <div class="login-title">
+                        <span class="icon-lock-open-alt"></span>
+                        <span>بوابة الدخول</span>
                     </div>
-
-                    <!-- مربع تسجيل الدخول -->
-                    <div class="login-box">
-                        <div class="login-title">
-                            <span class="icon-lock-open-alt"></span>
-                            <span>بوابة الدخول</span>
-                        </div>
+                    
+                    <form name="login" action="$(link-login-only)" method="post" onsubmit="return onLoginSubmitted()">
+                        <input type="hidden" name="dst" value="$(link-orig)">
+                        <input type="hidden" name="popup" value="false">
+                        <input type="hidden" id="mk-error" value="$(error)">
                         
-                        <form name="login" action="$(link-login-only)" method="post" onsubmit="return onLoginSubmitted()">
-                            <input type="hidden" name="dst" value="$(link-orig)">
-                            <input type="hidden" name="popup" value="false">
-                            <input type="hidden" id="mk-error" value="$(error)">
-                            
-                            <p class="error" id="error"></p>
+                        <p class="error" id="error"></p>
 
-                            <!-- أزرار المساعدة -->
-                            <div class="login-tools">
-                                <button type="button" class="tool-btn" parent-id="previous-cards">
-                                    <span class="icon-history"></span>
-                                    <span>كرت سابق</span>
-                                </button>
-                                <button type="button" class="tool-btn" id="startCameraBtn">
-                                    <span class="icon-camera-alt"></span>
-                                    <span>تصوير الكرت</span>
-                                </button>
-                            </div>
+                        <div class="login-tools">
+                            <button type="button" class="tool-btn" parent-id="previous-cards">
+                                <span class="icon-history"></span>
+                                <span>كرت سابق</span>
+                            </button>
+                            <button type="button" class="tool-btn" id="startCameraBtn">
+                                <span class="icon-camera-alt"></span>
+                                <span>تصوير الكرت</span>
+                            </button>
+                        </div>
 
-                            <div class="separator"><span>أو أدخل الرقم يدوياً</span></div>
+                        <div class="separator"><span>أو أدخل الرقم يدوياً</span></div>
 
-                            <div class="input-group">
-                                <span class="input-icon icon-user"></span>
-                                <input class="login-input" name="username" type="text" value="" placeholder="أدخل رقم الكرت هنا" required autocomplete="off" username-field rm-white-spaces improve-input to-arabic-numbers />
-                            </div>
+                        <div class="input-group">
+                            <span class="input-icon icon-user"></span>
+                            <input class="login-input" name="username" type="text" value="" placeholder="أدخل رقم الكرت هنا" required autocomplete="off" username-field rm-white-spaces improve-input to-arabic-numbers />
+                        </div>
 
-                            <!-- زر البث المباشر -->
-                            <div class="live-stream-wrapper">
-                                <button type="button" class="live-btn" onclick="window.location.href='lamasat.html';">
-                                    <span class="live-badge">LIVE</span>
-                                    <span class="icon-video"></span>
-                                    <span>البث المباشر للفعاليات</span>
-                                </button>
-                            </div>
+                        <div class="live-stream-wrapper">
+                            <button type="button" class="live-btn" onclick="window.location.href='lamasat.html';">
+                                <span class="live-badge">LIVE</span>
+                                <span class="icon-video"></span>
+                                <span>البث المباشر للفعاليات</span>
+                            </button>
+                        </div>
 
-                            <button type="button" class="login-submit" enable-hot-cookie>تسجيل الدخول</button>
-                        </form>
+                        <button type="button" class="login-submit" enable-hot-cookie>تسجيل الدخول</button>
+                    </form>
+                </div>
+
+                <!-- شريط الميزات (لملء الفراغ) -->
+                <div class="features-bar">
+                    <div class="feat-item">
+                        <span class="icon-bolt" style="color: #00e5ff; font-size: 20px;"></span>
+                        <span>سرعة فائقة</span>
                     </div>
-
-                    <!-- مربع الآيات القرآنية -->
-                    <div class="quran-box">
-                        <p id="quranVerseText"></p>
+                    <div class="feat-item">
+                        <span class="icon-shield" style="color: #00e5ff; font-size: 20px;"></span>
+                        <span>أمان تام</span>
                     </div>
-
-                    <!-- الخدمات -->
-                    <div class="services-grid">
-                        <button type="button" onclick="window.open('https://quran.tv', '_blank');">
-                            <span class="btnicon icon-book"></span>
-                            <span>القرآن الكريم</span>
-                        </button>
-                        <button type="button" parent-id="price">
-                            <span class="btnicon icon-money"></span>
-                            <span>الكروت والأسعار</span>
-                        </button>
-                        <button type="button" parent-id="sell-point">
-                            <span class="btnicon icon-basket"></span>
-                            <span>نقاط البيع</span>
-                        </button>
-                        <button type="button" parent-id="info">
-                            <span class="btnicon icon-info-circled"></span>
-                            <span>تعليمات</span>
-                        </button>
+                    <div class="feat-item">
+                        <span class="icon-support" style="color: #00e5ff; font-size: 20px;"></span>
+                        <span>دعم 24 ساعة</span>
                     </div>
                 </div>
 
-                <!-- شاشة الكاميرا -->
-                <div class="camera-modal-overlay" id="cameraModalOverlay">
-                    <div class="camera-modal">
-                        <button type="button" class="camera-close" id="closeCameraBtn"><span class="icon-cancel"></span></button>
-                        <p class="title camera-title">تصوير رقم الكرت</p>
-                        <div class="camera-container"></div>
-                        <div class="scan-status" id="scanStatus"></div>
-                    </div>
+                <!-- صندوق الحكمة اليومية (يتغير تلقائياً) -->
+                <div class="wisdom-box">
+                    <span class="icon-lightbulb" style="color: #ffd700; font-size: 24px; margin-bottom: 5px; display: block;"></span>
+                    <p id="wisdomText">﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾</p>
                 </div>
 
-                <!-- كرت سابق -->
-                <div class="app" id="previous-cards">
-                    <p class="title">كرت سابق</p>
-                    <div class="app-bot">
-                        <p class="contact-text">اختر أحد آخر كرتين تم تسجيل الدخول بهم</p>
-                        <div class="previous-cards-list" id="previousCardsList"></div>
-                        <p class="previous-cards-empty" id="previousCardsEmpty">لا توجد كروت محفوظة</p>
-                        <div class="app-logout app-submit">رجوع</div>
-                    </div>
+                <!-- شبكة الخدمات -->
+                <div class="services-grid">
+                    <button type="button" onclick="window.open('https://quran.tv', '_blank');">
+                        <span class="btnicon icon-book"></span>
+                        <span>القرآن</span>
+                    </button>
+                    <button type="button" parent-id="price">
+                        <span class="btnicon icon-money"></span>
+                        <span>الأسعار</span>
+                    </button>
+                    <button type="button" parent-id="sell-point">
+                        <span class="btnicon icon-basket"></span>
+                        <span>نقاط البيع</span>
+                    </button>
+                    <button type="button" parent-id="info">
+                        <span class="btnicon icon-info-circled"></span>
+                        <span>تعليمات</span>
+                    </button>
                 </div>
 
-                <!-- معلومات الشبكة -->
-                <div class="app" id="network-info">
-                    <p class="title">معلومات حول الشبكة</p>
-                    <div class="app-bot popup-rich-content">
-                        <div class="popup-hero">
-                            <span class="popup-hero-icon icon-wifi"></span>
-                            <div>
-                                <h3>شبكة HUSSEIN-STAR</h3>
-                                <p>بوابة إنترنت بالكرت صُممت لتسهيل الدخول والتواصل مع خدمة العملاء.</p>
-                            </div>
-                        </div>
-                        <div class="popup-section">
-                            <h3><span class="icon-key"></span> خيارات الدخول</h3>
-                            <div class="feature-list">
-                                <div class="feature-item">
-                                    <span class="feature-icon icon-camera-alt"></span>
-                                    <div><strong>تصوير الكرت</strong><p>صوّر الكرت لالتقاط الرقم تلقائياً.</p></div>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-icon icon-history"></span>
-                                    <div><strong>آخر كرتين</strong><p>عرض الكروت السابقة بضغطة واحدة.</p></div>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-icon icon-user"></span>
-                                    <div><strong>الإدخال اليدوي</strong><p>كتابة الرقم يدوياً بدون مسافات.</p></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="popup-section">
-                            <h3><span class="icon-street-view"></span> مناطق التغطية</h3>
-                            <div class="coming-soon-box">
-                                <span class="icon-hourglass"></span>
-                                <p>قريباً سيتم افتتاح الصفحة</p>
-                            </div>
-                        </div>
-                        <div class="popup-section support-section">
-                            <h3><span class="icon-headphones"></span> الدعم والتواصل</h3>
-                            <div class="customer-actions">
-                                <a class="contact-action" href="tel:+967738660998">
-                                    <span class="icon-phone-squared"></span> 738660998
-                                </a>
-                                <a class="contact-action" href="https://wa.me/967738660998">
-                                    <span class="icon-whatsapp"></span> واتساب
-                                </a>
-                            </div>
-                        </div>
-                        <div class="app-logout app-submit">رجوع</div>
-                    </div>
-                </div>
-
-                <!-- الكروت والأسعار -->
-                <div class="app" id="price">
-                    <p class="title">الكروت والأسعار</p>
-                    <div class="app-bot">
-                        <table>
-                            <thead>
-                                <tr><th>الفئة</th><th>الوقت</th><th>الرصيد</th><th>الصلاحية</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>500 ريال</td><td>مفتوحة</td><td>3.5 جيجا</td><td>3 أيام</td></tr>
-                                <tr><td>1000 ريال</td><td>مفتوحة</td><td>7 جيجا</td><td>7 أيام</td></tr>
-                                <tr><td>3000 ريال</td><td>مفتوحة</td><td>22 جيجا</td><td>20 يوم</td></tr>
-                                <tr><td>5000 ريال</td><td>مفتوحة</td><td>35 جيجا</td><td>30 يوم</td></tr>
-                            </tbody>
-                        </table>
-                        <div class="app-logout app-submit">رجوع</div>
-                    </div>
-                </div>
-
-                <!-- نقاط البيع -->
-                <div class="app" id="sell-point">
-                    <p class="title">نقاط البيع</p>
-                    <div class="app-bot popup-rich-content">
-                        <div class="popup-hero">
-                            <span class="popup-hero-icon icon-basket"></span>
-                            <div><h3>أماكن توفر الكروت</h3><p>تتوفر الكروت في البقالات والنقاط المعتمدة.</p></div>
-                        </div>
-                        <div class="popup-section">
-                            <h3><span class="icon-attention-circled"></span> تنبيه</h3>
-                            <p>احتفظ بالكرت ولا تشارك رقمه مع أي شخص.</p>
-                        </div>
-                        <div class="app-logout app-submit">رجوع</div>
-                    </div>
-                </div>
-
-                <!-- التعليمات -->
-                <div class="app" id="info">
-                    <p class="title">تعليمات وتنبيهات</p>
-                    <div class="app-bot popup-rich-content">
-                        <div class="popup-hero">
-                            <span class="popup-hero-icon icon-attention-circled"></span>
-                            <div><h3>تنبيهات هامة</h3><p>اتبع الإرشادات لتسجيل الدخول بسرعة.</p></div>
-                        </div>
-                        <div class="notice-list">
-                            <div class="notice-item"><span class="icon-key"></span><div><strong>اكتب الرقم كما هو</strong><p>تجنب المسافات والرموز.</p></div></div>
-                            <div class="notice-item"><span class="icon-download-cloud"></span><div><strong>حافظ على رصيدك</strong><p>أوقف التحديثات التلقائية.</p></div></div>
-                            <div class="notice-item"><span class="icon-ok-circled"></span><div><strong>استخدم الشبكة فيما يرضي الله</strong></div></div>
-                        </div>
-                        <div class="app-logout app-submit">رجوع</div>
-                    </div>
-                </div>
-
-                <!-- صفحة الحالة (النجاح) -->
-                <div class="app" id="status">
-                    <p class="title">تم تسجيل الدخول بنجاح</p>
-                    <div class="app-bot">
-                        <a class="status-link" href="status.html">إذا لم يتم الاتصال تلقائياً اضغط هنا</a>
-                        <div class="data"><span>رقم الكرت :</span><span id="username">---</span></div>
-                        <div class="data"><span>التحميل المتبقي :</span><span id="remain_bytes_total">غير محدود</span></div>
-                        <div class="data"><span>الوقت المتبقي :</span><span id="session_time_left">غير محدود</span></div>
-                        <div class="data"><span>متصل منذ :</span><span id="uptime">---</span></div>
-                        <div class="status-actions">
-                            <button class="app-submit logout-submit" erase-cookie clear-hot-cookie><span class="icon-off"></span> خروج</button>
-                            <button type="button" class="app-submit service-submit" id="statusCustomerServiceButton"><span class="icon-headphones"></span> الدعم</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- دعم الحالة -->
-                <div class="app" id="status-customer-service">
-                    <p class="title">خدمة العملاء</p>
-                    <div class="app-bot">
-                        <div class="customer-actions">
-                            <a class="contact-action" href="tel:+967738660998"><span class="icon-phone-squared"></span> 738660998</a>
-                            <a class="contact-action" href="https://wa.me/967738660998"><span class="icon-whatsapp"></span> واتساب</a>
-                        </div>
-                        <button type="button" class="app-submit status-service-back" id="statusCustomerServiceBack">رجوع</button>
-                    </div>
-                </div>
-
-                <!-- الحظر -->
-                <div class="app" id="block">
-                    <p class="title">أنت محظور</p>
-                    <div class="app-bot">
-                        <p class="contact-text">تم حظرك بسبب محاولات دخول خاطئة كثيرة.</p>
-                        <div class="data"><span>بقي على فك الحظر: </span><span count-down-span></span></div>
-                    </div>
-                </div>
+                <!-- حقوق المطور والنشر -->
+                <footer class="site-footer">
+                    <p>برمجة وتطوير: <a href="tel:+967738660998">حسين غلاب - 738660998</a></p>
+                    <p>© 2026 جميع الحقوق محفوظة لشبكة HUSSEIN-STAR</p>
+                </footer>
 
             </div>
         </div>
-        <input type="hidden" id="sys_token" value="important">
         <script src="js/hotInImprover.min.js"></script>
         <script src="js/hotCookie.min.js"></script>
         <script src="js/hotBlocker.min.js" enable-hot-blocker try-count="5" block-time="2"></script>
         <script src="js/main.min.js" link-login-only="http://star.com/login"></script>
         <script src="js/cam.najm.js"></script>
-    </div>
-
-    <div class="footer-credits">
-        <a href="tel:+967738660998">برمجة الشبكة: حسين غلاب : 738660998</a>
-    </div>
-
-    <!-- سكربتات التفعيل الديناميكي -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (window.NetworkConfig && window.NetworkConfig.adBanner && window.NetworkConfig.adBanner.enabled) {
-                var c = document.getElementById("dynamicAdContainer");
-                var l = document.getElementById("adBannerLink");
-                var i = document.getElementById("adBannerImg");
-                if (c && i && l) {
-                    i.src = window.NetworkConfig.adBanner.imageUrl;
-                    l.href = window.NetworkConfig.adBanner.linkUrl;
-                    c.style.display = "block";
-                }
+        
+        <!-- سكربت الساعة والحكمة -->
+        <script>
+            // الساعة
+            function updateClock() {
+                const now = new Date();
+                document.getElementById('liveClock').innerText = now.toLocaleTimeString('ar-EG');
+                document.getElementById('liveDate').innerText = now.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }
-            var errInp = document.getElementById('mk-error');
-            if(errInp) {
-                var e = errInp.value.trim();
-                if(e && e.indexOf('$(') !== 0) {
-                    var errBox = document.getElementById('error');
-                    if(errBox) { errBox.textContent = e; errBox.style.display = 'block'; }
-                }
-            }
-            var verses = ["{إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا}", "{لا تجعل الله أهون الناظرين إليك}"];
-            var vEl = document.getElementById('quranVerseText');
-            if(vEl) vEl.textContent = verses[Math.floor(Math.random() * verses.length)];
-        });
-    </script>
+            setInterval(updateClock, 1000); updateClock();
+
+            // الحكم والآيات المتغيرة
+            const wisdoms = [
+                "﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾",
+                "قال رسول الله ﷺ: (الكلمة الطيبة صدقة)",
+                "استخدم الإنترنت فيما يرضي الله وينفعك",
+                "قال ﷺ: (من كان يؤمن بالله واليوم الآخر فليقل خيراً أو ليصمت)",
+                "﴿وَقُولُوا لِلنَّاسِ حُسْنًا﴾"
+            ];
+            let wIndex = 0;
+            setInterval(() => {
+                const wText = document.getElementById('wisdomText');
+                wText.style.opacity = 0;
+                setTimeout(() => {
+                    wIndex = (wIndex + 1) % wisdoms.length;
+                    wText.innerText = wisdoms[wIndex];
+                    wText.style.opacity = 1;
+                }, 500);
+            }, 8000);
+        </script>
+    </div>
 </body>
 </html>

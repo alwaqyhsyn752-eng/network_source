@@ -534,3 +534,241 @@ td { color: var(--text-main); }
     filter: drop-shadow(0px 0px 20px rgba(0, 229, 255, 0.4)) !important;
 }
 .nettitle, .subtitle { display: none !important; }
+
+/* ==========================================
+   الخلفية السيبرانية المتحركة (خفيفة جداً)
+   ========================================== */
+
+/* 1. الشبكة المتحركة (تأثير السفر) */
+.cyber-grid {
+    position: absolute;
+    bottom: -50%; left: -50%; right: -50%; top: -50%;
+    background-image: 
+        linear-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveGrid 3s linear infinite;
+    transform: perspective(400px) rotateX(60deg);
+    z-index: -1;
+}
+
+@keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 40px; }
+}
+
+/* 2. الجزيئات المتطايرة (النجوم) */
+.cyber-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: #00e5ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #00e5ff;
+    bottom: -10px;
+    animation: floatUp 5s linear infinite;
+}
+
+.particle:nth-child(1) { left: 20%; animation-duration: 6s; animation-delay: 0s; }
+.particle:nth-child(2) { left: 40%; animation-duration: 4s; animation-delay: 2s; }
+.particle:nth-child(3) { left: 60%; animation-duration: 7s; animation-delay: 1s; }
+.particle:nth-child(4) { left: 80%; animation-duration: 5s; animation-delay: 3s; }
+.particle:nth-child(5) { left: 90%; animation-duration: 8s; animation-delay: 0.5s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* ==========================================
+   لمسات إضافية: 3D، شريط متحرك، الحقوق
+   ========================================== */
+
+/* 1. شريط الإعلانات المتحرك */
+.marquee-box {
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-text {
+    display: inline-block;
+    color: #00e5ff;
+    font-size: 14px;
+    font-weight: bold;
+    animation: scrollText 12s linear infinite;
+}
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 2. صندوق الدخول والحالة ثلاثي الأبعاد (3D) */
+.login-box {
+    transform: perspective(1000px) rotateX(2deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.6), 
+        0 0 20px rgba(0, 229, 255, 0.2), 
+        inset 0 0 15px rgba(0, 229, 255, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-box:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 
+        0 30px 50px rgba(0, 0, 0, 0.8), 
+        0 0 30px rgba(0, 229, 255, 0.4) !important;
+}
+
+/* 3. مربعات البيانات (الكرت، الوقت) ثلاثية الأبعاد */
+.data {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.05), 0 4px 6px rgba(0,0,0,0.3);
+    transform: translateZ(10px);
+}
+
+/* 4. حقوق المطور والنشر (الفوتر) */
+.site-footer {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-top: 1px solid rgba(0, 229, 255, 0.2);
+}
+.site-footer p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 5px 0;
+}
+.site-footer a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   الميزات الاحترافية الجديدة
+   ========================================== */
+
+/* 1. شريط الساعة والحالة */
+.live-dashboard {
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+.live-clock {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00e5ff;
+    font-family: monospace;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+.live-date {
+    font-size: 12px;
+    color: #94a3b8;
+}
+.network-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #22c55e;
+    font-weight: bold;
+    margin-top: 4px;
+}
+.pulse-dot {
+    width: 8px; height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* 2. شريط الميزات */
+.features-bar {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(16, 25, 45, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.feat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #e2e8f0;
+}
+
+/* 3. صندوق الحكمة */
+.wisdom-box {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px dashed rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.wisdom-box p {
+    color: #ffd700;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 4. شريط السرعة في صفحة الحالة */
+.speed-test-box {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+}
+.speed-label {
+    font-size: 12px; color: #94a3b8; margin-bottom: 8px; text-align: right;
+}
+.speed-bar {
+    width: 100%; height: 8px; background: #1e293b; border-radius: 4px; overflow: hidden;
+}
+.speed-fill {
+    width: 95%; height: 100%; background: linear-gradient(90deg, #00e5ff, #22c55e);
+    border-radius: 4px; box-shadow: 0 0 10px #00e5ff;
+}
+.speed-text {
+    font-size: 12px; color: #22c55e; margin-top: 8px; text-align: left; font-weight: bold;
+}

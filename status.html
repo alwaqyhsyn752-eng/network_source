@@ -13,6 +13,9 @@
         <div class="cyber-orb cyber-orb--1"></div>
         <div class="cyber-orb cyber-orb--2"></div>
         <div class="cyber-grid"></div>
+        <div class="cyber-particles">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        </div>
     </div>
 
     <div class="container">
@@ -24,53 +27,63 @@
                     <p class="subtitle">تم تسجيل الدخول بنجاح</p>
                 </div>
 
-                <div class="login-box" style="padding: 20px 15px;">
+                <div class="login-box">
                     <div class="login-title">
                         <span class="icon-ok-circled"></span>
-                        <span>حالة الاتصال</span>
+                        <span>لوحة معلومات الكرت</span>
                     </div>
 
+                    <!-- بيانات الكرت بشكل أيقونات -->
                     <div class="data">
-                        <span>رقم الكرت :</span>
-                        <span>$(username)</span>
+                        <span><span class="icon-user" style="color:#00e5ff; margin-left: 5px;"></span> رقم الكرت :</span>
+                        <span style="color: #00e5ff; font-weight: bold; font-family: monospace; font-size: 16px;">$(username)</span>
                     </div>
                     
                     <div class="data">
-                        <span>التحميل المتبقي :</span>
-                        <span>$(bytes-out-nice)</span>
+                        <span><span class="icon-download-cloud" style="color:#00e5ff; margin-left: 5px;"></span> التحميل المتبقي :</span>
+                        <span style="color: #22c55e; font-weight: bold;">$(bytes-out-nice)</span>
                     </div>
 
                     <div class="data">
-                        <span>الوقت المتبقي :</span>
-                        <span>$(session-time-left)</span>
+                        <span><span class="icon-hourglass" style="color:#00e5ff; margin-left: 5px;"></span> الوقت المتبقي :</span>
+                        <span style="color: #ffd700; font-weight: bold;">$(session-time-left)</span>
                     </div>
 
                     <div class="data">
-                        <span>متصل منذ :</span>
+                        <span><span class="icon-signal" style="color:#00e5ff; margin-left: 5px;"></span> متصل منذ :</span>
                         <span>$(uptime)</span>
                     </div>
 
                     <div class="data">
-                        <span>الاستهلاك :</span>
+                        <span><span class="icon-video" style="color:#00e5ff; margin-left: 5px;"></span> الاستهلاك :</span>
                         <span>$(bytes-in-nice)</span>
                     </div>
 
-                    <!-- أزرار التحكم -->
+                    <!-- شريط سرعة وهمي لملء الفراغ -->
+                    <div class="speed-test-box">
+                        <div class="speed-label">جودة الاتصال الحالية</div>
+                        <div class="speed-bar"><div class="speed-fill"></div></div>
+                        <div class="speed-text">ممتازة جداً (5G)</div>
+                    </div>
+
                     <div class="status-actions" style="margin-top: 20px;">
                         <a href="$(link-logout)" class="app-submit logout-submit" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
                             <span class="icon-off"></span> تسجيل الخروج
                         </a>
                         <button type="button" class="app-submit service-submit" style="display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="window.location.href='https://wa.me/967738660998';">
-                            <span class="icon-headphones"></span> الدعم
+                            <span class="icon-headphones"></span> الدعم الفني
                         </button>
                     </div>
-                    
-                    <a href="$(link-status)" style="display: block; text-align: center; color: #00e5ff; margin-top: 15px; font-size: 13px; text-decoration: none;">تحديث البيانات</a>
                 </div>
+
+                <!-- حقوق المطور والنشر -->
+                <footer class="site-footer">
+                    <p>برمجة وتطوير: <a href="tel:+967738660998">حسين غلاب - 738660998</a></p>
+                    <p>© 2026 جميع الحقوق محفوظة لشبكة HUSSEIN-STAR</p>
+                </footer>
 
             </div>
         </div>
     </div>
-
 </body>
 </html>
